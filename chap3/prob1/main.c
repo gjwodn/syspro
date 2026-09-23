@@ -9,7 +9,7 @@ main(){
 	int max;
 	max = 0;
 
-	while(get(line) != NULL) {
+	while(gets(line) != NULL) {
 		len = strlen(line);
 
 		if(len > max) {
