@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "copy.h"
 
-char line [MAXLINE];
+char line[MAXLINE];
 char longest[MAXLINE];
 
 main(){
@@ -21,5 +21,4 @@ main(){
 	if (max > 0)
 		printf("%s \n", longest);
 	return 0;
-}
 }
