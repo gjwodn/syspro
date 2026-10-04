@@ -2,7 +2,7 @@
 #include <string.h>
 #include "copy.h"
 
-int main(void)
+int main()
 {
 	char lines[5][MAXLINE];
 	char temp[MAXLINE];
@@ -10,25 +10,24 @@ int main(void)
 	int j;
 
 	while(i < 5) {
-		if(fgets(lines[i], MAXLINE, stdin) == NULL)
-			return 1;
-
-		lines[i][strcspn(lines[i], "\r\n")] = '\0';
-		i++;
+		if(scanf("%s", lines[i]) == 1) {
+			i++;
+		}
 	}
 
-	for(i = 0; i < 4; i++){
-		for(j = 0; j < 4 - i; j++){
-			if(strlen(lines[j]) < strlen(lines[j + 1])) {
-				copy(lines[j], temp);
-				copy(lines[j + 1], lines[j]);
-				copy(temp, lines[j + 1]);
+	for(i = 0; i < 4; i++) {
+		for(j = i + 1; j < 5; j++) {
+			if(strlen(lines[i]) < strlen(lines[j])) {
+					copy(lines[i], temp);
+					copy(lines[j], lines[i]);
+					copy(temp, lines[j]);
 			}
 		}
 	}
 
-	for(i = 0; i < 5; i++)
-		printf("%s\n", lines[i]);
+	for(i = 0; i < 5; i++) {
+	printf("%s\n", lines[i]);
+	}
 
 	return 0;
 }
